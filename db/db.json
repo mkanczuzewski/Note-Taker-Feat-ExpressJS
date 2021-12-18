@@ -1,20 +1,29 @@
 {
-    "notes": 
-    [
-        {
-            "id": "1",
-            "title":"jerkey",
-            "text":"Soy Sauce Vinegar Brown Sugar"
-        },
-        {
-            "id": "2",
-            "title":"pie",
-            "text":"Apples pie crust and love "
-        },
-        {
-            "id": "3",
-            "title":"pizza",
-            "text":"Hey its-a pizza pie! "
-        }
-    ]
+  "notes": [
+    {
+      "id": "1",
+      "title": "jerkey",
+      "text": "Soy Sauce Vinegar Brown Sugar"
+    },
+    {
+      "id": "2",
+      "title": "pie",
+      "text": "Apples pie crust and love "
+    },
+    {
+      "id": "3",
+      "title": "pizza",
+      "text": "Hey its-a pizza pie! "
+    },
+    {
+      "title": "brownies",
+      "text": "chocolate mix and chips",
+      "id": "3"
+    },
+    {
+      "title": "brownies",
+      "text": "chocolate mix and chips",
+      "id": "4"
+    }
+  ]
 }
