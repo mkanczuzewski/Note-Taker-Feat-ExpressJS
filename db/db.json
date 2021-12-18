@@ -2,14 +2,17 @@
     "notes": 
     [
         {
+            "id": "1",
             "title":"jerkey",
             "text":"Soy Sauce Vinegar Brown Sugar"
         },
         {
+            "id": "2",
             "title":"pie",
             "text":"Apples pie crust and love "
         },
         {
+            "id": "3",
             "title":"pizza",
             "text":"Hey its-a pizza pie! "
         }
