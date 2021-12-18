@@ -1,6 +1,17 @@
-[
-    {
-        "title":"Test Title",
-        "text":"Test text"
-    }
-]
+{
+    "notes": 
+    [
+        {
+            "title":"jerkey",
+            "text":"Soy Sauce Vinegar Brown Sugar"
+        },
+        {
+            "title":"pie",
+            "text":"Apples pie crust and love "
+        },
+        {
+            "title":"pizza",
+            "text":"Hey its-a pizza pie! "
+        }
+    ]
+}
