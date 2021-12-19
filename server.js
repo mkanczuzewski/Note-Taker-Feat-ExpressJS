@@ -4,10 +4,12 @@ const { query } = require('express');
 const express = require('express');
 const PORT = process.env.PORT || 3001;
 const app = express();
-// parse incoming string or array data (needed everytime you POST on a server)
+//middleware, parse incoming string or array data (needed everytime you POST on a server)
 app.use(express.urlencoded({ extended: true }));
-// parse incoming JSON data (needed everytime you POST on a server)
+//middleware, parse incoming JSON data (needed everytime you POST on a server)
 app.use(express.json());
+//middleware, to serve the public files
+app.use(express.static('public'));
 const { notes } = require('./db/db');
 
 //break out filter function from group get request
@@ -80,6 +82,7 @@ app.get('/api/notes/:id', (req, res) =>
     }
 });
 
+//save data back to JSON
 app.post('/api/notes', (req, res) => 
 {
     req.body.id = notes.length.toString();
@@ -89,11 +92,26 @@ app.post('/api/notes', (req, res) =>
     }
     else
     {
+        // set id based on what the next index of the array will be
+        req.body.id = notes.length.toString();
         const note = createNewNote(req.body, notes);
         res.json(note);
     }
 });
 
+//HTML routes
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+app.get('notes', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/notes.html'));
+});
+
+// This is a wild card route incase someone tries to go somewhere that doesnt exist. 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+  });
 
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);
