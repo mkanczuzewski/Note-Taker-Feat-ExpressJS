@@ -4,6 +4,8 @@ const { query } = require('express');
 const express = require('express');
 const PORT = process.env.PORT || 3001;
 const app = express();
+var lodashDelete = require('lodash');
+
 //middleware, parse incoming string or array data (needed everytime you POST on a server)
 app.use(express.urlencoded({ extended: true }));
 //middleware, parse incoming JSON data (needed everytime you POST on a server)
@@ -112,6 +114,16 @@ app.get('notes', (req, res) => {
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
   });
+
+app.delete('/api/notes/:id', (req, res) => 
+{
+    var index = lodashDelete.findIndex(notes, {id: req.params.id})
+    notes.splice(index,1);
+    fs.writeFileSync(
+        path.join(__dirname, './db/db.json'),
+        JSON.stringify({ notes: notes }, null, 2)
+    );
+});
 
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);
