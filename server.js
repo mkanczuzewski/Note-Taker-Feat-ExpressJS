@@ -3,8 +3,9 @@ const path = require('path');
 const { query } = require('express');
 const express = require('express');
 const PORT = process.env.PORT || 3001;
-const app = express();
 var lodashDelete = require('lodash');
+const app = express();
+
 
 //middleware, parse incoming string or array data (needed everytime you POST on a server)
 app.use(express.urlencoded({ extended: true }));
