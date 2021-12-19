@@ -70,8 +70,7 @@ const renderActiveNote = () => {
 const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
-    text: noteText.value,
-    id: noteList.length + 1
+    text: noteText.value
   };
   saveNote(newNote).then(() => {
     getAndRenderNotes();
@@ -91,10 +90,9 @@ const handleNoteDelete = e => {
     activeNote = {};
   }
 
-  deleteNote(noteId).then(() => {
+  deleteNote(noteId);
     getAndRenderNotes();
     renderActiveNote();
-  });
 };
 
 // Sets the activeNote and displays it
